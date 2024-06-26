@@ -12,7 +12,7 @@ from scrapy_selenium import SeleniumRequest
 
 class PropertySpider(scrapy.Spider):
     options: Options = Options()
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument(f"user-agent={UserAgent().random}")
@@ -46,7 +46,7 @@ class PropertySpider(scrapy.Spider):
         title_text = sel.css('title::text').get()
         header_text = sel.css('h1.Header__Name-sc-eng632-3.fSjDTR::text').get()
         address_text = sel.css('p.Header__Address-sc-eng632-8.ciJBjz::text').getall()
-        for elem in title_text.split('|'):
+        for elem in title_text.split('|'):git push -u origin maingit push -u origin main
             if "ID" in elem:
                 object_id = elem.strip()
                 break
